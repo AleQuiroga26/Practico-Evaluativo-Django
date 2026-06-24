@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Tienda - Rincón del Vicio{% endblock %}
+
+{% block contenido %}
+
+<!-- BARRA DE BÚSQUEDA Y FILTROS -->
+<section class="tienda-filtros">
+    <form method="GET" class="buscador-form">
+        <input type="text" name="q" placeholder="Buscar juegos..." value="{{ query|default:'' }}" class="buscador-input">
+        <button type="submit" class="btn-buscar">🔍</button>
+    </form>
+
+    <div class="categorias-filtro">
+        <a href="{% url 'tienda' %}" class="cat-tag {% if not categoria_actual %}activa{% endif %}">Todas</a>
+        {% for cat in categorias %}
+            <a href="{% url 'tienda' %}?categoria={{ cat.id }}" class="cat-tag {% if categoria_actual == cat.id %}activa{% endif %}">
+                {{ cat.nombre }}
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- GRILLA DE JUEGOS -->
+<section class="seccion-tienda">
+    <h2>
+        {% if query %}
+            Resultados para "{{ query }}"
+        {% elif categoria_nombre %}
+            Categoría: {{ categoria_nombre }}
+        {% else %}
+            Todos los Juegos
+        {% endif %}
+    </h2>
+
+    <div class="grilla-juegos">
+        {% for juego in juegos %}
+            <div class="tarjeta-juego">
+                {% if juego.portada %}
+                    <img src="{{ juego.portada.url }}" alt="{{ juego.titulo }}">
+                {% else %}
+                    <div class="sin-portada">🎮</div>
+                {% endif %}
+                <div class="tarjeta-info">
+                    <h3>{{ juego.titulo }}</h3>
+                    <p class="precio">USD ${{ juego.precio }}</p>
+                    <p class="desarrolladora">{{ juego.desarrolladora.nombre }}</p>
+                </div>
+                <a href="{% url 'detalle_juego' juego.id %}" class="btn-ver">Ver Detalles</a>
+                {% if user.is_superuser %}
+                <div class="tarjeta-admin">
+                    <a href="{% url 'editar_juego' juego.id %}" class="btn-editar">✏ Editar</a>
+                    <a href="{% url 'eliminar_juego' juego.id %}" class="btn-borrar">🗑 Eliminar</a>
+                </div>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="sin-juegos">No se encontraron juegos.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

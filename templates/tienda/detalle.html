@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ juego.titulo }} - Rincón del Vicio{% endblock %}
+
+{% block contenido %}
+
+<section class="detalle-juego">
+    <div class="detalle-portada">
+        {% if juego.portada %}
+            <img src="{{ juego.portada.url }}" alt="{{ juego.titulo }}">
+        {% else %}
+            <div class="sin-portada-grande">🎮</div>
+        {% endif %}
+    </div>
+
+    <div class="detalle-info">
+        <h1>{{ juego.titulo }}</h1>
+        <p class="precio-grande">USD ${{ juego.precio }}</p>
+        <p class="descripcion">{{ juego.descripcion }}</p>
+
+        <div class="detalle-meta">
+            <p><strong>Desarrolladora:</strong> {{ juego.desarrolladora.nombre }}</p>
+            {% if juego.fecha_lanzamiento %}
+                <p><strong>Lanzamiento:</strong> {{ juego.fecha_lanzamiento }}</p>
+            {% endif %}
+            <p><strong>Plataformas:</strong>
+                {% for plat in juego.plataformas.all %}
+                    <span class="tag-plataforma">{{ plat.nombre }}</span>
+                {% endfor %}
+            </p>
+            <p><strong>Categorías:</strong>
+                {% for cat in juego.categorias.all %}
+                    <span class="tag-categoria">{{ cat.nombre }}</span>
+                {% endfor %}
+            </p>
+        </div>
+
+        {% if juego.requisitos %}
+        <div class="detalle-requisitos">
+            <h3>Requisitos del Sistema</h3>
+            <ul>
+                <li><strong>SO:</strong> {{ juego.requisitos.sistema_operativo }}</li>
+                <li><strong>Procesador:</strong> {{ juego.requisitos.procesador }}</li>
+                <li><strong>RAM:</strong> {{ juego.requisitos.memoria_ram }}</li>
+                <li><strong>Gráfica:</strong> {{ juego.requisitos.tarjeta_grafica }}</li>
+                <li><strong>Almacenamiento:</strong> {{ juego.requisitos.almacenamiento }}</li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <a href="{% url 'tienda' %}" class="btn-volver">← Volver a la Tienda</a>
+    </div>
+</section>
+
+{% endblock %}

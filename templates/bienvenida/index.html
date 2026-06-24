@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Bienvenido - Rincón del Vicio{% endblock %}
+
+{% block contenido %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-contenido">
+        <h1>Bienvenido al <span class="texto-destacado">Rincón del Vicio</span></h1>
+        <p>Tu tienda de videojuegos favorita. Explorá los mejores títulos a los mejores precios.</p>
+        {% if not user.is_authenticated %}
+            <a href="{% url 'register' %}" class="btn-hero">Únete Ahora</a>
+        {% else %}
+            <a href="{% url 'tienda' %}" class="btn-hero">Ir a la Tienda</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- JUEGOS DESTACADOS -->
+<section class="seccion-destacados">
+    <h2>Juegos Destacados</h2>
+    <div class="grilla-juegos">
+        {% for juego in juegos %}
+            <div class="tarjeta-juego">
+                {% if juego.portada %}
+                    <img src="{{ juego.portada.url }}" alt="{{ juego.titulo }}">
+                {% else %}
+                    <div class="sin-portada">🎮</div>
+                {% endif %}
+                <div class="tarjeta-info">
+                    <h3>{{ juego.titulo }}</h3>
+                    <p class="precio">USD ${{ juego.precio }}</p>
+                </div>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'detalle_juego' juego.id %}" class="btn-ver">Ver más</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-ver">Inicia sesión para ver</a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="sin-juegos">Aún no hay juegos cargados. ¡Pronto habrá novedades!</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

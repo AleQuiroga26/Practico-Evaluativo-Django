@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Rincón del Vicio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="{% url 'bienvenida' %}">🎮 Rincón del Vicio</a>
+        </div>
+
+        <div class="navbar-links">
+            {% if user.is_authenticated %}
+                <a href="{% url 'tienda' %}">Tienda</a>
+
+                {% if user.is_superuser %}
+                    <a href="{% url 'crear_juego' %}" class="btn-dev">⚙ Agregar Juego</a>
+                {% endif %}
+
+                <span class="navbar-user">
+                    {% if user.foto %}
+                        <img src="{{ user.foto.url }}" alt="{{ user.username }}" class="navbar-avatar">
+                    {% else %}
+                        <span class="navbar-avatar-placeholder">{{ user.username|first|upper }}</span>
+                    {% endif %}
+                    {{ user.username }}
+                </span>
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-logout">Cerrar Sesión</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+                <a href="{% url 'register' %}" class="btn-register">Registrarse</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido-principal">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Rincón del Vicio. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
