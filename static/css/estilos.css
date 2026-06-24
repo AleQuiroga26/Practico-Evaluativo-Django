@@ -1,6 +1,6 @@
-/* static/css/estilos.css */
+
 body {
-    /* Degradado de negro a azul oscuro, básico pero elegante */
+    
     background: linear-gradient(135deg, #0f0f12 0%, #0d2b45 100%);
     background-attachment: fixed;
     color: #e0e0e0;
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* Contenedores para login y registro */
+/* login y registro */
 .auth-container {
     background-color: rgba(30, 30, 40, 0.85); /* Fondo oscuro semitransparente */
     padding: 40px;
@@ -30,7 +30,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* Estilos de inputs generados por Django */
+/* Inputs  */
 .auth-container p {
     text-align: left;
     margin-bottom: 15px;
@@ -219,7 +219,7 @@ body {
 }
 
 /* =============================================
-   HERO SECTION (Bienvenida)
+   (Bienvenida)
    ============================================= */
 .hero {
     text-align: center;
@@ -261,7 +261,7 @@ body {
 }
 
 /* =============================================
-   SECCIÓN DE JUEGOS DESTACADOS (Bienvenida)
+   Juegos destacados (Bienvenida)
    ============================================= */
 .seccion-destacados {
     padding: 40px 30px;
@@ -275,7 +275,7 @@ body {
 }
 
 /* =============================================
-   GRILLA DE JUEGOS (compartida bienvenida y tienda)
+   JUEGOS (compartida bienvenida y tienda)
    ============================================= */
 .grilla-juegos {
     display: grid;
@@ -365,7 +365,7 @@ body {
 }
 
 /* =============================================
-   TIENDA - BUSCADOR Y FILTROS
+   TIENDA, BUSCADOR Y FILTROS
    ============================================= */
 .tienda-filtros {
     max-width: 1200px;
@@ -572,7 +572,7 @@ body {
 }
 
 /* =============================================
-   CRUD - FORMULARIOS
+   CRUD + LOSs FORMULARIOS
    ============================================= */
 .crud-container {
     max-width: 600px;
@@ -658,7 +658,7 @@ body {
 }
 
 /* =============================================
-   CRUD - BOTONES EN TARJETAS (Editar / Eliminar)
+   CRUD (Editar / Eliminar)
    ============================================= */
 .tarjeta-admin {
     display: flex;
@@ -693,7 +693,7 @@ body {
 }
 
 /* =============================================
-   CRUD - CONFIRMACIÓN DE ELIMINACIÓN
+   CRUD CON ELIMINACIÓN
    ============================================= */
 .eliminar-info {
     text-align: center;

@@ -4,7 +4,7 @@
 
 {% block contenido %}
 
-<!-- BARRA DE BÚSQUEDA Y FILTROS -->
+<!-- BARRA DE BÚSQUEDA CON LOS FILTROS -->
 <section class="tienda-filtros">
     <form method="GET" class="buscador-form">
         <input type="text" name="q" placeholder="Buscar juegos..." value="{{ query|default:'' }}" class="buscador-input">
@@ -21,7 +21,7 @@
     </div>
 </section>
 
-<!-- GRILLA DE JUEGOS -->
+<!-- JUEGOS -->
 <section class="seccion-tienda">
     <h2>
         {% if query %}
