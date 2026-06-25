@@ -44,13 +44,26 @@ La aplicación maneja estos aspectos :
 6. Entra desde tu navegador web a `http://127.0.0.1:8000/` 
 
 *Para acceder al panel de control total, creas un superusuario con `python manage.py createsuperuser` y luego entras a `/admin`.*
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Capturas de pantalla:
+-
 Login:
-![alt text](image.png)
-
-
-
+![Login](media_Readme/Login.png)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Register:
+![Register](media_Readme/Register.png)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Tienda:
+![Tienda](media_Readme/Tienda.png)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Muestra de un juego:
+![Juego](media_Readme/Juego.png)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Historial de compras:
+![Compra](media_Readme/ComprasH.png)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Diagrama de la base (relaciones):
+![Diagrama](media_Readme/Diagrama.png)
 
 
 
