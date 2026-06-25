@@ -43,7 +43,7 @@ class Juego(models.Model):
     desarrolladora = models.ForeignKey(Desarrolladora, on_delete=models.CASCADE, related_name='juegos')
     plataformas = models.ManyToManyField(Plataforma, related_name='juegos')
     categorias = models.ManyToManyField(Categoria, related_name='juegos')
-    requisitos = models.OneToOneField(RequisitosSistema, on_delete=models.SET_NULL, null=True, blank=True)
+    requisitos = models.ForeignKey(RequisitosSistema, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.titulo
