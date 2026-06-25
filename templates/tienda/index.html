@@ -23,11 +23,23 @@
 
 <!-- JUEGOS -->
 <section class="seccion-tienda">
-    <h2>
+    <h2 style="display: flex; align-items: center; gap: 15px;">
         {% if query %}
             Resultados para "{{ query }}"
         {% elif categoria_nombre %}
             Categoría: {{ categoria_nombre }}
+            
+            {% if perms.tienda.change_categoria or perms.tienda.delete_categoria %}
+                <div style="display: inline-flex; gap: 10px;">
+                    {% if perms.tienda.change_categoria %}
+                        <a href="{% url 'editar_categoria' categoria_actual %}" class="btn-editar" style="font-size: 0.5em; padding: 4px 8px;"> Editar</a>
+                    {% endif %}
+                    {% if perms.tienda.delete_categoria %}
+                        <a href="{% url 'eliminar_categoria' categoria_actual %}" class="btn-borrar" style="font-size: 0.5em; padding: 4px 8px;"> Eliminar</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+            
         {% else %}
             Todos los Juegos ({{ total_juegos }})
         {% endif %}
@@ -50,10 +62,10 @@
                 {% if perms.tienda.change_juego or perms.tienda.delete_juego %}
                 <div class="tarjeta-admin">
                     {% if perms.tienda.change_juego %}
-                        <a href="{% url 'editar_juego' juego.id %}" class="btn-editar">✏ Editar</a>
+                        <a href="{% url 'editar_juego' juego.id %}" class="btn-editar"> Editar</a>
                     {% endif %}
                     {% if perms.tienda.delete_juego %}
-                        <a href="{% url 'eliminar_juego' juego.id %}" class="btn-borrar">🗑 Eliminar</a>
+                        <a href="{% url 'eliminar_juego' juego.id %}" class="btn-borrar"> Eliminar</a>
                     {% endif %}
                 </div>
                 {% endif %}

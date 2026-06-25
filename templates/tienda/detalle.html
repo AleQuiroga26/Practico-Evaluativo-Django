@@ -52,7 +52,7 @@
             <a href="{% url 'tienda' %}" class="btn-volver">← Volver a la Tienda</a>
             
             {% if ya_comprado %}
-                <span class="btn-comprado">✓ En tu biblioteca</span>
+                <span class="btn-comprado"> En tu biblioteca</span>
             {% else %}
                 <form action="{% url 'comprar_juego' juego.id %}" method="post" style="display: inline;">
                     {% csrf_token %}

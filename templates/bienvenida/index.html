@@ -30,7 +30,7 @@
                 {% endif %}
                 <div class="tarjeta-info">
                     <h3>{{ juego.titulo }}</h3>
-                    <p class="precio">USD ${{ juego.precio }}</p>
+                    <p class="desarrolladora">{{ juego.desarrolladora.nombre }}</p>
                 </div>
                 {% if user.is_authenticated %}
                     <a href="{% url 'detalle_juego' juego.id %}" class="btn-ver">Ver más</a>
