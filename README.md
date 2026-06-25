@@ -1,4 +1,4 @@
-# 🎮 Rincón del Vicio
+# Rincón del Vicio
 
 ¡Bienvenido a **Rincón del Vicio**! Una tienda de videojuegos digital diseñada para que los gamers puedan explorar el catálogo, descubrir sus próximos títulos favoritos y gestionar su propia biblioteca personal.
 
@@ -22,10 +22,10 @@ La aplicación maneja estos aspectos :
 
 ---
 
-## 🚀 Cómo correr el proyecto
+## Cómo ejecutar el proyecto
 
 1. **Clona o descarga** este repositorio.
-2. Abre una terminal en la carpeta del proyecto (`Rincon_del_vicio2`).
+2. Abre una terminal en la carpeta del proyecto (`Rincon_Del_Vicio`).
 3. Activa tu entorno virtual (si tienes uno) e instala las dependencias necesarias y los requirements.txt
    ```bash
    pip install -r requirements.txt
@@ -44,4 +44,27 @@ La aplicación maneja estos aspectos :
 6. Entra desde tu navegador web a `http://127.0.0.1:8000/` 
 
 *Para acceder al panel de control total, creas un superusuario con `python manage.py createsuperuser` y luego entras a `/admin`.*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Capturas de pantalla:
+Login:
+![alt text](image.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
